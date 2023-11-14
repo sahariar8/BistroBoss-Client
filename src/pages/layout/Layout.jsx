@@ -1,14 +1,19 @@
 import React from 'react';
 import Header from '../shared/Header';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Footer from '../shared/Footer';
 
 const Layout = () => {
+
+    const location = useLocation();
+    console.log(location);
+    const isLogin = location.pathname.includes('login') || location.pathname.includes('register');
+
     return (
         <div className='max-w-screen-xl mx-auto'>
-           <Header></Header>
+           { isLogin || <Header></Header>}
            <Outlet></Outlet>
-           <Footer></Footer>
+           {isLogin || <Footer></Footer>}
         </div>
     );
 };
