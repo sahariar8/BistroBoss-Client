@@ -4,10 +4,11 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 import { AuthContext } from '../../provider/ContextProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import SocialLogin from '../socialLogin/SocialLogin';
 
 const Login = () => {
 
-    const {user,login,loading} = useContext(AuthContext)
+    const {login} = useContext(AuthContext)
     const [disabled,setDisabled] = useState(true);
     const navigate = useNavigate();
     const location = useLocation();
@@ -15,9 +16,11 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || "/";
 
-    if(loading){
-      return <span className="loading loading-dots loading-lg"></span>
-    }
+    // if(loading){
+    //   return <span className="loading loading-dots loading-lg"></span>
+    // }
+
+   
     
     useEffect(()=>{
         loadCaptchaEnginge(6); 
@@ -108,6 +111,7 @@ const Login = () => {
                 <h2 className='text-primary'><Link to="/register">Register</Link></h2>
               </div>
             </form>
+           <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

@@ -5,11 +5,14 @@ import { AuthContext } from '../../provider/ContextProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Swal from 'sweetalert2';
+import useAxiosPublic from '../../assets/hooks/useAxiosPublic';
+import SocialLogin from '../socialLogin/SocialLogin';
 
 
 const Register = () => {
-    const { user,createUser,userProfileUpdate} = useContext(AuthContext)
+    const { createUser,userProfileUpdate} = useContext(AuthContext)
     const navigate = useNavigate();
+    const axiosPublic =useAxiosPublic();
 
     const {
         register,
@@ -22,28 +25,39 @@ const Register = () => {
         createUser(data.email,data.password)
         .then(result=>{
           const loggedUser = result.user;
+
           console.log(loggedUser);
           userProfileUpdate(data.name,data.photo)
           .then(()=>{
             console.log('user profile Updated')
-            Swal.fire({
-              title: "Resgistration Successfully Done",
-              showClass: {
-                popup: `
-                  animate__animated
-                  animate__fadeInUp
-                  animate__faster
-                `
-              },
-              hideClass: {
-                popup: `
-                  animate__animated
-                  animate__fadeOutDown
-                  animate__faster
-                `
+
+            const userInfo = { name:data.name,email:data.email };
+            axiosPublic.post('/users',userInfo)
+            .then(res=>{
+              console.log(res.data);
+              if(res.data.insertedId){
+                Swal.fire({
+                  title: "Resgistration Successfully Done",
+                  showClass: {
+                    popup: `
+                      animate__animated
+                      animate__fadeInUp
+                      animate__faster
+                    `
+                  },
+                  hideClass: {
+                    popup: `
+                      animate__animated
+                      animate__fadeOutDown
+                      animate__faster
+                    `
+                  }
+                });
+                navigate('/login')
               }
-            });
-            navigate('/login')
+  
+            })
+           
           })
           .catch(error=>console.log(error))
          
@@ -110,6 +124,7 @@ const Register = () => {
                 <h2 className='text-primary'><Link to='/login'>Login</Link></h2>
               </div>
             </form>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
