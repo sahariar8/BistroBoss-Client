@@ -15,6 +15,9 @@ import Review from '../pages/dashboard/review/Review';
 import Payment from '../pages/dashboard/payment/Payment';
 import Booking from '../pages/dashboard/Booking/Booking';
 import AllUsers from '../pages/dashboard/allUsers/AllUsers';
+import AddItems from '../pages/dashboard/add-items/AddItems';
+import AdminRoutes from './AdminRoutes';
+import Manageitems from '../pages/dashboard/manage-items/Manageitems';
 
 export const router = createBrowserRouter([
     {
@@ -76,8 +79,18 @@ export const router = createBrowserRouter([
             //admin
             {
                 path:'all-users',
-                element:<AllUsers></AllUsers>
-            }
+                element:<AdminRoutes><AllUsers></AllUsers></AdminRoutes>
+            },
+            {
+                path:'add-items',
+                element:<AdminRoutes><AddItems></AddItems></AdminRoutes>
+                
+            },
+            {
+                path:'manage-items',
+                element:<AdminRoutes><Manageitems></Manageitems></AdminRoutes>
+                
+            },
         ]
     }
 ])

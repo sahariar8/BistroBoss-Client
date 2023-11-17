@@ -6,7 +6,8 @@ import Swal from 'sweetalert2';
 const Cart = () => {
 
     const [cart,refetch] = useCart();
-    const totalPrice = cart.reduce((total,item)=>total+item.price,0)
+    const Price = cart.reduce((total,item)=>total+item.price,0)
+    const totalPrice = parseFloat(Price.toFixed(2))
     const axiosSecure = useAxios();
 
     const handleDelete = id =>{
