@@ -4,6 +4,7 @@ import useMenu from '../../../assets/hooks/useMenu';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import useAxios from '../../../assets/hooks/useAxios';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const Manageitems = () => {
     const [menu, ,refetch] = useMenu();
@@ -37,9 +38,6 @@ const Manageitems = () => {
           });
    }
 
-   const handleEdit = id =>{
-
-   }
     return (
       <div>
         <SectionTitle
@@ -78,12 +76,14 @@ const Manageitems = () => {
                     </td>
                     <td>$ {item.price}</td>
                     <th className="flex gap-2 items-center">
-                      <button
+                     <Link to={`/dashboard/updateitem/${item._id}`}>
+                     <button
                         className="btn btn-warning btn-xs text-white"
-                          onClick={() => handleEdit(item)}
+                         
                       >
                        <FaEdit className='text-lg'/>Edit
                       </button>
+                     </Link>
                       <button
                         className="btn btn-error btn-xs text-white"
                           onClick={() => handleDelete(item)}
