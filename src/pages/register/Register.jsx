@@ -10,7 +10,7 @@ import SocialLogin from '../socialLogin/SocialLogin';
 
 
 const Register = () => {
-    const { createUser,userProfileUpdate} = useContext(AuthContext)
+    const { createUser,userProfileUpdate,logOut} = useContext(AuthContext)
     const navigate = useNavigate();
     const axiosPublic =useAxiosPublic();
 
@@ -25,7 +25,6 @@ const Register = () => {
         createUser(data.email,data.password)
         .then(result=>{
           const loggedUser = result.user;
-
           console.log(loggedUser);
           userProfileUpdate(data.name,data.photo)
           .then(()=>{

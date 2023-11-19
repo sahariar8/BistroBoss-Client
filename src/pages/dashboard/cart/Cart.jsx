@@ -2,6 +2,7 @@ import React from 'react';
 import useCart from '../../../assets/hooks/useCart';
 import useAxios from '../../../assets/hooks/useAxios';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
 
@@ -53,7 +54,14 @@ const Cart = () => {
           <h2>
             Total Price: <span className="text-orange-400">${totalPrice}</span>
           </h2>
-          <button className="btn btn-sm normal-case bg-orange-300">Pay</button>
+        <Link to='/dashboard/payment'>
+            {
+                cart.length ? 
+                <button className="btn btn-sm normal-case bg-orange-300">Pay</button>
+                :
+                <button disabled className="btn btn-sm normal-case bg-orange-300">Pay</button>
+            }
+        </Link>
         </div>
         <div className='pt-10'>
           <div className="overflow-x-auto">

@@ -82,18 +82,21 @@ const Header = () => {
         </div>
         <div className="navbar-end">
         {
-                      user?
-                      <>
-                      <h1>{user?.displayName}</h1>
-                      <li>
-                      <button className='btn btn-ghost normal-case btn-sm' onClick={handleLogOut}>LogOut</button>
-                      </li>
-                      </>
-                      :
-                      <>
-                       <li><Link to="/login">Login</Link></li>
-                      </>
-                    }
+            user ? (
+              <div className="flex items-center">
+                <div className="avatar online">
+                  <div className="w-8 md:w-12 rounded-full">
+                    <img src={user?.photoURL}/>
+                  </div>
+                </div>
+                <h1 className="ml-1 font-semibold ">{user.displayName}</h1>
+                <h1 className="btn btn-sm normal-case btn-neutral ml-2 text-base font-semibold" onClick={handleLogOut}>LogOut</h1>
+                
+              </div>
+            ) : (
+              <NavLink to="/login">LogIn</NavLink>
+            )
+        }
         </div>
       </div>
     );
