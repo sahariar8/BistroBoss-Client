@@ -3,10 +3,12 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaShoppingCart, FaUsers, FaUtensils, FaWallet } from "react-icons/fa";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
 import useAdmin from '../../assets/hooks/useAdmin';
+import useCart from '../../assets/hooks/useCart';
 
 const Dashboard = () => {
 
     const [isAdmin] = useAdmin();
+    const [cart] = useCart();
     return (
         <div className='flex max-w-screen-xl mx-auto'>
            <div className='w-1/5 bg-orange-300 min-h-screen px-6'>
@@ -27,8 +29,8 @@ const Dashboard = () => {
                 :
                 <>
                     <li><NavLink to='/dashboard/reservation'><FaCalendar/>Reservation</NavLink></li>
-                    <li><NavLink to='/dashboard/payment'><FaWallet/> Payment History</NavLink></li>
-                    <li><NavLink to='/dashboard/cart'><FaShoppingCart/> My Cart</NavLink></li>
+                    <li><NavLink to='/dashboard/payment-history'><FaWallet/> Payment History</NavLink></li>
+                    <li><NavLink to='/dashboard/cart'><FaShoppingCart/> My Cart <span className='-ml-16 text-white'>({cart.length})</span></NavLink></li>
                     <li><NavLink to='/dashboard/review'><FaAd/>Add Review</NavLink></li>
                     <li><NavLink to='/dashboard/booking'><FaList/>My Booking</NavLink></li>
                 </>

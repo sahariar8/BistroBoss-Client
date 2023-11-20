@@ -19,6 +19,7 @@ import AddItems from '../pages/dashboard/add-items/AddItems';
 import AdminRoutes from './AdminRoutes';
 import Manageitems from '../pages/dashboard/manage-items/Manageitems';
 import UpdateItems from '../pages/dashboard/updateitems/UpdateItems';
+import PaymentHistory from '../pages/dashboard/paymentHistory/PaymentHistory';
 
 export const router = createBrowserRouter([
     {
@@ -73,6 +74,10 @@ export const router = createBrowserRouter([
             {
                 path:'payment',
                 element:<Payment></Payment>
+            },
+            {
+                path:'payment-history',
+                element:<PaymentHistory></PaymentHistory>
             },
             {
                 path:'booking',
