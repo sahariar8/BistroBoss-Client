@@ -3,10 +3,12 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/ContextProvider';
 import Swal from 'sweetalert2';
 import useCart from '../../assets/hooks/useCart';
+import useAdmin from '../../assets/hooks/useAdmin';
 
 const Header = () => {
 
   const {user,logOut} = useContext(AuthContext);
+  const [ isAdmin ] = useAdmin();
   const [cart] = useCart();
   const navigate = useNavigate();
 
@@ -53,6 +55,14 @@ const Header = () => {
           <Link to="/secret">Secret</Link>
         </li>
         <li>
+         {
+            isAdmin && user && <Link to="/dashboard/admin-home">Dashboard</Link>
+         }
+         {
+             user && !isAdmin && <Link to="/dashboard/user-home">Dashboard</Link>
+         }
+        </li>
+        <li>
           <Link to='/dashboard/cart'>
              
               Chart
@@ -82,7 +92,7 @@ const Header = () => {
         </div>
         <div className="navbar-end">
         {
-            user ? (
+            user?.email ? 
               <div className="flex items-center">
                 <div className="avatar online">
                   <div className="w-8 md:w-12 rounded-full">
@@ -93,9 +103,9 @@ const Header = () => {
                 <h1 className="btn btn-sm normal-case btn-neutral ml-2 text-base font-semibold" onClick={handleLogOut}>LogOut</h1>
                 
               </div>
-            ) : (
+             : 
               <NavLink to="/login">LogIn</NavLink>
-            )
+            
         }
         </div>
       </div>

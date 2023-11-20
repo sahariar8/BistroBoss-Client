@@ -112,13 +112,16 @@ const CheckoutForm = () => {
           <CardElement
             options={{
               style: {
+                
                 base: {
                   fontSize: "16px",
                   color: "#424770",
                   "::placeholder": {
                     color: "#aab7c4",
                   },
+                  border: "1px solid #ced4da",
                 },
+              
                 invalid: {
                   color: "#9e2146",
                 },

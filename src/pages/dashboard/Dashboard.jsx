@@ -4,9 +4,10 @@ import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaShoppingCart, F
 import { MdOutlineRestaurantMenu } from "react-icons/md";
 import useAdmin from '../../assets/hooks/useAdmin';
 import useCart from '../../assets/hooks/useCart';
+import useAuth from '../../assets/hooks/useAuth';
 
 const Dashboard = () => {
-
+    const {user} = useAuth();
     const [isAdmin] = useAdmin();
     const [cart] = useCart();
     return (
@@ -14,9 +15,14 @@ const Dashboard = () => {
            <div className='w-1/5 bg-orange-300 min-h-screen px-6'>
             <h1 className='text-3xl pt-6 font-bold font-slobo '>Bistro Boss</h1>
             <h2 className='text-xl font-semibold font-serif'>RESTAURENT</h2>
-           <ul>
-                <li className='pt-3 font-bold text-white font-serif flex items-center'> <FaHome className='mr-2'/> Admin Home</li>
-           </ul>
+           {/* <ul>
+              {
+                isAdmin ?   
+                        <li className='pt-3 font-bold text-white font-serif flex items-center'> <FaHome className='mr-2'/> Admin Home</li>
+                        :
+                        <li className='pt-3 font-bold text-white font-serif flex items-center'> <FaHome className='mr-2'/> User Home</li>
+              }
+           </ul> */}
             <ul className='menu p-4 font-semibold' >
                {
                 isAdmin ? <>
@@ -28,6 +34,7 @@ const Dashboard = () => {
                 </>
                 :
                 <>
+                    <li><NavLink to='/dashboard/user-home'><FaHome/>User Home</NavLink></li>
                     <li><NavLink to='/dashboard/reservation'><FaCalendar/>Reservation</NavLink></li>
                     <li><NavLink to='/dashboard/payment-history'><FaWallet/> Payment History</NavLink></li>
                     <li><NavLink to='/dashboard/cart'><FaShoppingCart/> My Cart <span className='-ml-16 text-white'>({cart.length})</span></NavLink></li>
