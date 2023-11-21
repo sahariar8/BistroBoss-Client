@@ -4,6 +4,7 @@ import { AuthContext } from '../../provider/ContextProvider';
 import Swal from 'sweetalert2';
 import useCart from '../../assets/hooks/useCart';
 import useAdmin from '../../assets/hooks/useAdmin';
+import { FaCartPlus } from 'react-icons/fa';
 
 const Header = () => {
 
@@ -51,9 +52,9 @@ const Header = () => {
         <li>
           <Link to="/order/Salad">Order Food</Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/secret">Secret</Link>
-        </li>
+        </li> */}
         <li>
          {
             isAdmin && user && <Link to="/dashboard/admin-home">Dashboard</Link>
@@ -65,7 +66,7 @@ const Header = () => {
         <li>
           <Link to='/dashboard/cart'>
              
-              Chart
+             <FaCartPlus/>
                 <div className="badge badge-secondary ml-1">+{cart.length}</div>
              
           </Link>
@@ -92,7 +93,7 @@ const Header = () => {
         </div>
         <div className="navbar-end">
         {
-            user?.email ? 
+            user ? 
               <div className="flex items-center">
                 <div className="avatar online">
                   <div className="w-8 md:w-12 rounded-full">
@@ -104,7 +105,7 @@ const Header = () => {
                 
               </div>
              : 
-              <NavLink to="/login">LogIn</NavLink>
+              <NavLink to="/login" className='mr-5'>LogIn</NavLink>
             
         }
         </div>

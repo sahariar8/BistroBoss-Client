@@ -8,7 +8,7 @@ const AdminHome = () => {
     const { user } = useAuth();
     const axiosSecure = useAxios();
 
-    const { data:stats } = useQuery({
+    const { data:stats=[] } = useQuery({
         queryKey:['stats'],
         queryFn: async ()=>{
             const res = await axiosSecure.get('/admin-stats');
@@ -21,8 +21,8 @@ const AdminHome = () => {
     return (
       <div>
         <h1 className="text-3xl font-bold">
-          Hi, Welcome Back{" "}
-          <span className="text-orange-400 ml-2">{user?.displayName}</span>{" "}
+          Hi, Welcome Back
+          <span className="text-orange-400 ml-2">{user?.displayName}</span>
         </h1>
         <div className="grid md:grid-cols-4 py-10 gap-5">
             {/* card */}
