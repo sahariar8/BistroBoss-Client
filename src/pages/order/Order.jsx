@@ -30,7 +30,7 @@ const Order = () => {
     return (
       <div>
         <Helmet>
-            <title>Bistro Boss | Order</title>
+            <title>Sahariar's Dine | Order</title>
         </Helmet>
         <Cover
           img={banner}

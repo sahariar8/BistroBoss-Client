@@ -13,7 +13,7 @@ const Dashboard = () => {
     return (
         <div className='flex max-w-screen-xl mx-auto'>
            <div className='w-1/5 bg-orange-300 min-h-screen px-6'>
-            <h1 className='text-3xl pt-6 font-bold font-slobo '>Bistro Boss</h1>
+            <h1 className='text-3xl pt-6 font-bold font-slobo '>Sahariar's Dine</h1>
             <h2 className='text-xl font-semibold font-serif'>RESTAURENT</h2>
            {/* <ul>
               {

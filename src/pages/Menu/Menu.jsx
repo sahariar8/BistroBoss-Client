@@ -24,7 +24,7 @@ const Menu = () => {
     return (
       <div>
         <Helmet>
-          <title> Bistro Boss | Menu</title>
+          <title> Sahariar's Dine | Menu</title>
         </Helmet>
         <div>
           {/* cover image */}

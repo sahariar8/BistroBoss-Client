@@ -5,6 +5,7 @@ import { AuthContext } from '../../provider/ContextProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import SocialLogin from '../socialLogin/SocialLogin';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
 
@@ -76,6 +77,9 @@ const Login = () => {
 
     return (
         <div className="hero min-h-screen max-w-screen-xl mx-auto">
+          <Helmet>
+            <title>Sahariar's Dine | Login</title>
+        </Helmet>
         <div className="hero-content flex-col lg:flex-row-reverse md:px-10">
           <div className="text-center md:w-1/2 lg:text-left pt-10 md:pt-0">
                 <img src={img} alt=""/>

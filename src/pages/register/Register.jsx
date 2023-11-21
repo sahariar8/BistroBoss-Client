@@ -69,7 +69,9 @@ const Register = () => {
     return (
         <div className="hero min-h-screen max-w-screen-xl mx-auto">
           <Helmet>
-              <title>Bistro Boss | Sign Up</title>
+          <Helmet>
+            <title>Sahariar's Dine | Register</title>
+        </Helmet>
           </Helmet>
         <div className="hero-content flex-col lg:flex-row-reverse md:px-10">
           <div className="text-center md:w-1/2 lg:text-left pt-10 md:pt-0">
