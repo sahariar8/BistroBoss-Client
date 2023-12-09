@@ -10,23 +10,25 @@ import useAxiosPublic from "../../assets/hooks/useAxiosPublic";
 const SocialLogin = () => {
 
     const {googleSign} = useContext(AuthContext);
+    console.log(googleSign);
     const navigate = useNavigate();
     const axiosPublic = useAxiosPublic() ;
 
     const handleGoogle = () =>{
-        googleSign()
-        .then(result=>{
+      console.log("first")
+        googleSign().then(result=>{
           console.log(result.user);
           
           const userInfo = {
             name : result.user?.displayName,
-            email : result.user?.email
-
+            email : result.user?.email,
+            subscription: 'no', 
           }
-          axiosPublic.post('/users',userInfo)
-          .then(res=>{
-            console.log(res.data);
-          })
+          console.log(userInfo);
+          // axiosPublic.post('/users',userInfo)
+          // .then(res=>{
+          //   console.log(res.data);
+          // })
           
           Swal.fire({
             title: "User Login SucessFully",

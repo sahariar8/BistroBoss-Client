@@ -41,7 +41,7 @@ const AllUsers = () => {
     });
   };
 
-  const handleMakeAdmin =user =>{
+  const handleMakeAdmin = user =>{
     console.log(user);
 
     axiosSecure.patch(`/users/admin/${user._id}`)
@@ -87,7 +87,7 @@ const AllUsers = () => {
                     <label>{index + 1}</label>
                   </th>
                   <th>{item.name}</th>
-                  <td>{item.email}</td>
+                  <th>{item.email}</th >
                   <td>
                   {
                     item.role === "admin"? <>

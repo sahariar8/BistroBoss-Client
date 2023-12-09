@@ -1,8 +1,21 @@
-# React + Vite
+# Features
+1.User Authentication:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+*Secure user registration and login functionality for customers.
+*Admin authentication with role-based access control.
 
-Currently, two official plugins are available:
+2.Menu Management:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*Dynamic menu creation, modification, and deletion through the admin panel.
+*Categorization of items (appetizers, mains, desserts, etc.).
+*Ability to add images, descriptions, and prices for each menu item.
+
+3.Order Processing:
+
+*Real-time order tracking and status updates for customers.
+*Admin dashboard for order management, including order confirmation and cancellation.
+*Automated email/SMS notifications for order updates.
+
+4.Payment Integration:
+
+*Integration with popular payment gateways for secure online transactions.

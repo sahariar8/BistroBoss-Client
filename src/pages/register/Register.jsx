@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import img from '../../assets/others/authentication1.png';
+import img from '../../assets/authentication.gif';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../provider/ContextProvider';
 import { Link, useNavigate } from 'react-router-dom';
@@ -110,11 +110,11 @@ const Register = () => {
                   {...register("password", {
                     required: true,
                     minLength: 6,
-                    pattern: /^(?=.*[A-Z])(?=.*[\W_]).+$/
-                     })} />
+                    pattern: /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-])[A-Za-z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]{6,}$/}
+                    )} />
                 {errors.password?.type === 'required' && <span className='text-red-600'>Password Required</span>}
                 {errors.password?.type === 'minLength' && <span className='text-red-600'>Password Must be six Charecter</span>}
-                {errors.password?.type === 'pattern' && <span className='text-red-600'>Password Must be One UpperCase and One Special Charecter</span>}
+                {errors.password?.type === 'pattern' && <span className='text-red-600'>Password Must be One UpperCase,one numeric number and One Special Charecter</span>}
               </div> 
               
               <div className="form-control mt-6">
